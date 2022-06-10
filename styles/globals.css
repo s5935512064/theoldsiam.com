@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allison&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    background-color: transparent;
+    transition: background-color 1s ease;
+    padding: 0;
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h1 {
+  }
+}
+
+.animate-bounce {
+  animation: bounce 3s infinite;
+}
+
+.roll {
+  animation: roll 10s linear infinite;
+}
+@keyframes roll {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  /* 50% {
+    left: 1000px;
+    -webkit-transform: rotate(360deg);
+  } */
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(#0a3255, #0a3255);
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%;
+}
+
+.content-div {
+  background-image: url("https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.content-div:hover {
+  background-image: linear-gradient(
+      to right,
+      rgba(126, 213, 111, 0.801),
+      hsla(160, 64%, 43%, 0.801)
+    ),
+    url("https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80");
+}
+
+.image-cover {
+  height: 260px;
+}
+/*
+  -remove the classes below if you have the 'group-hover'property added in your tailwind config file
+  -also remove the class from the html template
+  */
+.content-div:hover .fd-cl {
+  opacity: 0.25;
+}
+.content-div:hover .fd-sh {
+  opacity: 1;
+}
