@@ -1,6 +1,23 @@
-import Image from 'next/image'
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+}
+
+
+const listMenu = [
+    { name: "หน้าแรก", href: "/" },
+    { name: "โปรโมชั่น", href: "#" },
+    { name: "ร้านค้า", href: "#" },
+    { name: "ไดเรกทอรี่", href: "#" },
+    { name: "ติดต่อเรา", href: "#" },
+]
 
 const Navbar = () => {
+    const router = useRouter();
     return (
         <>
             <div className="fixed h-fit  w-full  top-0 z-30 flex flex-col justify-center items-center bg-white  ">
@@ -9,7 +26,7 @@ const Navbar = () => {
                     <div className="w-28">
 
                     </div>
-                    <div className="w-28 relative">
+                    <div className="w-32 relative ">
                         <Image
                             src="/assets/OSP-Logo.png"
                             alt="logo_theOldSiam"
@@ -19,7 +36,7 @@ const Navbar = () => {
                             objectFit="contain"
                             className="cursor-pointer scale-110" />
                     </div>
-                    <div className="inline-flex">
+                    <div className="w-28 flex justify-end flex-col items-end md:flex-row">
                         <div className="w-7 h-7 relative mr-1">
                             <Image
                                 src="/assets/en.svg"
@@ -49,12 +66,15 @@ const Navbar = () => {
 
                 <div className="hidden h-10 max-w-7xl px-4 md:px-10 w-full  md:flex items-center justify-center  gap-6 text-slate-500 font-light">
 
-                    <p className="font-semibold text-slate-900 link link-underline link-underline-black">หน้าแรก</p>
-                    <p>โปรโมชั่น</p>
-                    <p>ร้านค้า</p>
-                    <p>ไดเรกทอรี่</p>
-                    <p>ติดต่อเรา</p>
+                    {listMenu.map((item, index) => (
+                        <Link key={index} href={item.href}>
 
+
+                            <button className={classNames(router.pathname === item.href ? "font-semibold text-slate-900 link-underline-active" : "font-light", " link link-underline link-underline-black")}>
+                                {item.name}
+                            </button>
+                        </Link>
+                    ))}
                 </div>
 
                 {/* <div className="h-20 w-20 rounded-full border border-white/0 hover:border-white duration-500 flex items-center cursor-pointer">

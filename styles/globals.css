@@ -58,6 +58,18 @@
   transition: background-size 0.5s ease-in-out;
 }
 
+.link-underline-active {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease-in-out;
+  background-size: 100% 3px;
+  background-position: 0 100%;
+}
+
 .link-underline-black {
   background-image: linear-gradient(transparent, transparent),
     linear-gradient(#0a3255, #0a3255);
